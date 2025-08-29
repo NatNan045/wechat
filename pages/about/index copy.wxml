@@ -1,0 +1,60 @@
+<t-image src="{{bjUrl}}" mode="aspectFill" aria-label="背景图" width="{{screenWidth}}" height="{{screenHeight}}" />
+<!-- 头部 -->
+<view class="top-wrp" style="padding-top: {{menuRect.bottom + menuRect.height}}px;">
+  <view class="top-wrp__inner">
+    <t-image src="{{adverImg}}" class="adver" width="46" height="46" shape="circle" mode="aspectFill" />
+    <view class="right">
+      <view class="name">南楠 NatNan</view>
+      <view class="job">前端开发工程师（<text>求职中...</text>）</view>
+    </view>
+
+  </view>
+</view>
+<!-- 拖拽组件内部 -->
+<draggable-sheet class="sheet" style="height: {{sheetHeight}}px;" initial-child-size="{{minSize}}" min-child-size="{{minSize}}" max-child-size="{{maxSize}}" snap="{{false}}" snap-sizes="{{[]}}" worklet:onsizeupdate="onSizeUpdate">
+  <scroll-view associative-container="draggable-sheet" class="sheet__scrollable" scroll-y type="custom" show-scrollbar="{{false}}">
+    <sticky-section>
+      <sticky-header>
+        <view class="sheet__scrollable__bar">
+          <view class="indicator" />
+        </view>
+      </sticky-header>
+      <list-view>
+        <view class="sheet__scrollable__row sheet__scrollable__title">
+          <!-- 详细信息 -->
+          <!-- 工作经历 -->
+          <t-divider align="left">
+            <text slot="content" class="same-title">01.工作经历</text>
+          </t-divider>
+          <t-steps layout="vertical" readonly theme="dot" current="{{5}}" t-class="job-box">
+            <t-step-item wx:for="{{jobList}}" wx:key="index">
+              <view class="job-title" slot="title">
+                <text>{{item.time}}</text>
+                <text>{{item.company}}</text>
+              </view>
+              <view class="job-content" slot="content">
+                <view class="divider-wrapper">
+                  <text class="demo-6__text-color">{{item.post}}</text>
+                  <t-divider layout="vertical" />
+                  <text class="demo-6__text-color">{{item.salary}}</text>
+                </view>
+                <t-divider />
+                <block wx:for="{{item.list}}" wx:for-index="i" wx:for-item="val">
+                  <view class="project">
+                    <view class="h1">· {{val.project}}</view>
+                    <view class="project-inner">
+                      <view class="item" wx:for="{{val.list}}" wx:for-index="j" wx:for-item="v">· {{v}}</view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </t-step-item>
+          </t-steps>
+          <!-- 个人技能 -->
+          <!-- 自我介绍 -->
+          <!-- 个人技能 -->
+        </view>
+      </list-view>
+    </sticky-section>
+  </scroll-view>
+</draggable-sheet>

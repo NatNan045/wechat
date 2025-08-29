@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-steps": "tdesign-miniprogram/steps/steps",
+    "t-step-item": "tdesign-miniprogram/step-item/step-item",
+    "t-divider": "tdesign-miniprogram/divider/divider"
+  }
+}

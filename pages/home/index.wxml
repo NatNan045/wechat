@@ -1,0 +1,19 @@
+<nav nav-type="search" />
+
+<scroll-view scroll-y style="height: {{scrollViewHeight}}px;" type="custom">
+  <sticky-header>
+    <t-tabs defaultValue="{{0}}">
+      <t-tab-panel label="推荐" value="0" />
+    </t-tabs>
+  </sticky-header>
+  <list-view>
+    <card wx:for="{{cardInfo}}" wx:key="index" desc="{{item.desc}}" url="{{item.list[0]}}" tags="{{item.tags}}" data-item="{{item}}" bind:tap="jumpTo" />
+  </list-view>
+</scroll-view>
+
+<view class="home-release">
+  <t-button theme="primary" size="large" icon="add" shape="round" bindtap="addDataFunc">
+    发布
+  </t-button>
+</view>
+<t-message id="t-message" />

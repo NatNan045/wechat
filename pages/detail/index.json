@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "navback":  "/components/nav/nav-back"
+  }
+}

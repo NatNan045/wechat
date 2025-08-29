@@ -1,0 +1,26 @@
+@import '/variable.less';
+
+.home-card {
+  width: calc(100vw - 24px);
+  border-radius: 9px;
+  background: @bg-color-white;
+  overflow: hidden;
+  margin: 12px 12px 0;
+
+  &__image {
+    width: calc(100vw - 24px);
+    height: 400rpx;
+  }
+
+  &__info {
+    padding: 32rpx;
+    font-weight: 400;
+    font-size: @font-size-small;
+  }
+
+  &__tag-group {
+    display: flex;
+    gap: 16rpx;
+    margin-top: 16rpx;
+  }
+}

@@ -1,0 +1,36 @@
+<!-- 案例详情页面（二级页面） -->
+<navback></navback>
+<scroll-view type="custom" scroll-y show-scrollbar="{{false}}" style="height:{{screenHeight - navAllHeight - bottomSafeHeight}}px;">
+  <swiper wx:if="{{!loading}}" class="swiper-container" circular layout-type="transformer" transformer-type="threeD" style="height:{{swiperHeight}}px;" current="{{current}}" bindchange="bindchange" cache-extent="{{3}}" indicator-dots="true">
+    <block wx:for="{{swiper_list}}" wx:key="index">
+      <swiper-item>
+        <t-image t-class="swiper-image" src="{{item}}" width="screenWidth" height="{{swiperHeight}}px" mode="aspectFill" />
+        <view>{{swiper_list.length}}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="case-content">
+    <view class="case-content__icons">
+      <block wx:for="{{eventData.options}}" wx:key="index">
+        <t-icon name="{{item.name}}" size="36rpx" />
+        <text>{{item.num}}</text>
+      </block>
+    </view>
+    <text class="case-content__title">{{eventData.desc}}</text>
+    <text class="case-content__p">{{eventData.p}}</text>
+    <view class="case-content__tag-group">
+      <t-tag wx:for="{{eventData.tags}}" wx:key="index" size="small" variant="light" theme="{{item.theme}}" icon="{{item.icon}}">{{item.text}}</t-tag>
+    </view>
+    <view class="case-content__desc">
+      <block wx:for="{{eventData.content}}" wx:key="index">
+        <text class="case-content__desc__label">{{item.label}}</text>
+        <block wx:if="{{item.arr}}">
+          <view>
+            <text wx:for="{{item.text}}" wx:for-index="i" wx:for-item="val">{{val}}</text>
+          </view>
+        </block>
+        <view wx:else>{{item.text}}</view>
+      </block>
+    </view>
+  </view>
+</scroll-view>
